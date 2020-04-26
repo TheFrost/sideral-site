@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+html(lang="es-MX")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+
+    meta(name="twitter:card", content="summary_large_image")
+    meta(property="og:title", content="Site Boilerplate")
+    meta(property="og:url", content="http://example.com")
+    meta(property="og:type", content="website")
+    meta(property="og:image", content="http://example.com/share.png")
+    meta(property="og:description", content="Site boilerplate description.")
+    meta(name="description", content="Site boilerplate description.")
+
+    title Site Boilerplate
+
+    link(rel="stylesheet", href="scss/index.scss")
+  body
+    include svg-icons
+    
+    include header
+
+    main.main
+      block content
+
+    include footer
+
+    script(src="js/index.js")

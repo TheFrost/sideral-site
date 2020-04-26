@@ -1,0 +1,29 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title, &__icon { overflow: hidden; }
+
+  &__title {
+    margin-bottom: 1rem;
+
+    font-size: 3rem;
+
+    > h1 {
+      text-transform: uppercase;
+      font-family: Arial;
+
+      transform: translateY(100%);
+    }
+  }
+  
+  &__icon {
+    > svg {
+      width: 100px;
+      height: 80px;
+
+      transform: translateY(100%);
+    }
+  }
+}

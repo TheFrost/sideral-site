@@ -1,0 +1,11 @@
+//- Home
+extends pug/layout/layout
+
+block content
+  div.wrapper.home(data-module-scope="home")
+    div.intro
+      div.intro__title
+        h1 Hello!
+      div.intro__icon
+        svg.svg
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#code")

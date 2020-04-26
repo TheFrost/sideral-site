@@ -1,0 +1,21 @@
+html, body {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  font-size: 16px;
+
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+*, *:after, *:before { box-sizing: border-box; }
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 { margin: 0; }
