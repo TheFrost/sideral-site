@@ -1,0 +1,36 @@
+$size: 50px;
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  height: $size;
+
+  border-bottom: 1px solid black;
+
+  &__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+
+    &:not(:last-child) {
+      border-right: 1px solid black;
+    }
+
+    > img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    &.star, &.eye {
+      flex-shrink: 0;
+      width: $size;
+    }
+
+    &.logo {
+      flex-grow: 1;
+
+      > img { max-height: 23px; }
+    }
+  }
+}
