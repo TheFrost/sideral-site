@@ -16,14 +16,15 @@ html(lang="es-MX")
     title Site Boilerplate
 
     link(rel="stylesheet", href="scss/index.scss")
-  body
+  body.body
     include svg-icons
     
-    include header
+    div.body__inner
+      include header
 
-    main.main
-      block content
+      main.main
+        block content
 
-    include footer
+      include footer
 
     script(src="js/index.js")
