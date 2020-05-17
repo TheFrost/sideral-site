@@ -1,5 +1,8 @@
 @import 'base';
 
+// tools
+@import "tools/breakpoints";
+
 // layout
 @import "layout/body";
 @import "layout/header";
