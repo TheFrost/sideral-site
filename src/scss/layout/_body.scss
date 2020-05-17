@@ -7,6 +7,10 @@
     min-height: 100%;
 
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 14px;
+
+    @media (min-width: $bp-laptop) {
+      border-width: 4px;
+    }
   }
 }
