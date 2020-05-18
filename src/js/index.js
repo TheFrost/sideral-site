@@ -22,5 +22,11 @@ window.addEventListener('load', () => {
     }, 100)
   }
 
+  const render = () => {
+    moduleManager.update()
+    if (moduleManager.needsUpdate) window.requestAnimationFrame(render)
+  }
+
   bindEvents()
+  render()
 })

@@ -1,6 +1,8 @@
 import { $, pubsub } from './tools/utils'
 
 export default class ModuleManager {
+  needsUpdate = false
+
   constructor (moduleCatalogSetup) {
     this.moduleCatalogSetup = moduleCatalogSetup
     this.currentScopeModules = []
@@ -37,5 +39,17 @@ export default class ModuleManager {
     const modules = [...general, ...this.currentScopeModules]
 
     modules.map(module => module.resize ? module.resize() : null)
+  }
+
+  update () {
+    const { general } = this.moduleCatalogSetup
+    const modules = [...general, ...this.currentScopeModules]
+
+    modules.map(module => {
+      if (module.update !== undefined) {
+        module.update()
+        this.needsUpdate = true
+      }
+    })
   }
 }
