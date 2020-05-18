@@ -1,11 +1,16 @@
-$size: 50px;
+$min-size: 50px;
+$max-size: 70px;
 
 .header {
   display: flex;
   flex-shrink: 0;
-  height: $size;
+  height: $min-size;
 
   border-bottom: 1px solid black;
+
+  @media (min-width: $bp-laptop) {
+    height: $max-size;
+  }
 
   &__section {
     display: flex;
@@ -13,8 +18,8 @@ $size: 50px;
     align-items: center;
     padding: 0.5rem;
 
-    &:not(:last-child) {
-      border-right: 1px solid black;
+    &:not(:first-child) {
+      border-left: 1px solid black;
     }
 
     > img {
@@ -24,13 +29,37 @@ $size: 50px;
 
     &.star, &.eye {
       flex-shrink: 0;
-      width: $size;
+      width: $min-size;
+
+      @media (min-width: $bp-laptop) {
+        width: $max-size;
+      }
     }
 
     &.logo {
       flex-grow: 1;
 
-      > img { max-height: 23px; }
+      @media (min-width: $bp-laptop) {
+        flex-grow: 0;
+        padding: 0 2rem;
+      }
+
+      > img {
+        max-height: 23px;
+
+        @media (min-width: $bp-laptop) {
+          max-height: 30px;
+        }
+      }
+    }
+
+    &.contact {
+      display: none;
+      flex-grow: 1;
+
+      @media (min-width: $bp-laptop) {
+        display: block;
+      }
     }
   }
 }
