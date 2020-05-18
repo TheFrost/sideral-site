@@ -16,10 +16,11 @@ window.addEventListener('load', () => {
   const moduleManager = new ModuleManager(moduleCatalogSetup)
   moduleManager.init()
 
-  /**
-   * Bind events global control
-   */
-  window.onresize = debounce(() => {
-    moduleManager.resizeHandler()
-  }, 100)
+  const bindEvents = () => {
+    window.onresize = debounce(() => {
+      moduleManager.resizeHandler()
+    }, 100)
+  }
+
+  bindEvents()
 })
