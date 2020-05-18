@@ -26,7 +26,8 @@
     "standard": "^14.3.3"
   },
   "dependencies": {
-    "gsap": "^3.2.6"
+    "gsap": "^3.2.6",
+    "lodash.curry": "^4.1.1"
   },
   "standard": {
     "parser": "babel-eslint"

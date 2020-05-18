@@ -1,16 +1,21 @@
 import { debounce } from 'lodash'
+import { isDesktop } from './tools/utils'
 import ModuleManager from './moduleManager'
-import Intro from './modules/intro'
+import CustomCursor from './modules/custom-cursor'
 
 window.addEventListener('load', () => {
   /**
    * Module manager setup
    */
   const moduleCatalogSetup = {
-    general: [],
-    home: [
-      new Intro()
-    ]
+    general: [
+      // only desktop
+      ...isDesktop()
+        ? [
+          new CustomCursor()
+        ] : []
+    ],
+    home: []
   }
 
   const moduleManager = new ModuleManager(moduleCatalogSetup)

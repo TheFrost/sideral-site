@@ -1,0 +1,47 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+
+  &__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__circle {
+    transition: background-color 0.2s, border 0.2s;
+    border-style: solid;
+    border-color: var(--theme-cursor);
+  }
+
+  &__circle-anim {
+    position: absolute;
+    top: calc(50% - 38.5px);
+    left: calc(50% - 38.5px);
+    pointer-events: none;
+
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    circle {
+      fill: #fb070700;
+      stroke: var(--theme-cursor);
+      stroke-width: 1;
+      stroke-dasharray: 180;
+      stroke-dashoffset: 180;
+    }
+  }
+
+  &__circle-anim,
+  &__circle-anim-inner {
+    transform-origin: center;
+  }
+}
