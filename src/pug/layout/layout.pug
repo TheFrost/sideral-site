@@ -23,8 +23,11 @@ html(lang="es-MX")
     div.body__inner
       include header
 
-      main.main
-        block content
+      div.body__container
+        main.main
+          block content
+        
+        include nav
 
       include footer
 

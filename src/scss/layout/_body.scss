@@ -13,4 +13,14 @@
       border-width: 4px;
     }
   }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    @media (min-width: $bp-laptop) {
+      flex-direction: row-reverse;
+    }
+  }
 }
