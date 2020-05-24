@@ -1,0 +1,23 @@
+$size: 35px;
+
+.social {
+  display: flex;
+
+  &__item {
+    margin-right: 1.5rem;
+
+    > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: $size;
+      height: $size;
+
+      text-decoration: none;
+
+      color: currentColor;
+      border: 1px solid black;
+      border-radius: 50%;
+    }
+  }
+}
