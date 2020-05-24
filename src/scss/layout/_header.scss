@@ -44,7 +44,8 @@ $max-size: 70px;
         padding: 0 2rem;
       }
 
-      > img {
+      img {
+        display: block;
         max-height: 23px;
 
         @media (min-width: $bp-laptop) {
