@@ -1,5 +1,5 @@
 $min-size: 50px;
-$max-size: 70px;
+$max-size: 74px;
 
 .header {
   display: flex;
@@ -61,6 +61,15 @@ $max-size: 70px;
       @media (min-width: $bp-laptop) {
         display: block;
       }
+    }
+  }
+
+  &__address {
+    > a {
+      text-transform: uppercase;
+      text-decoration: none;
+
+      color: currentColor;
     }
   }
 }
