@@ -4,7 +4,7 @@
 
   border-top: 1px solid black;
 
-  @media (min-width: $bp-laptop) {
+  @media (min-width: $switch-breakpoint) {
     width: 75px;
 
     border-top: none;
@@ -15,7 +15,7 @@
     display: flex;
     flex-grow: 1;
 
-    @media (min-width: $bp-laptop) {
+    @media (min-width: $switch-breakpoint) {
       flex-direction: column;
     }
   }
@@ -23,7 +23,7 @@
   &__item {
     width: 25%;
 
-    @media (min-width: $bp-laptop) {
+    @media (min-width: $switch-breakpoint) {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,13 +36,13 @@
     &:not(:last-child) {
       border-right: 1px solid black;
       
-      @media (min-width: $bp-laptop) {
+      @media (min-width: $switch-breakpoint) {
         border: none;
       }
     }
 
     &.tel {
-      @media (min-width: $bp-laptop) {
+      @media (min-width: $switch-breakpoint) {
         height: 40%;
       }
     }
@@ -59,18 +59,19 @@
 
       color: currentColor;
 
-      @media (min-width: $bp-laptop) {
+      @media (min-width: $switch-breakpoint) {
         flex-shrink: 0;
         width: auto;
         height: auto;
 
+        transform-origin: center;
         transform: rotate(-90deg);
       }
     }
   }
 
   &__icon {
-    @media (min-width: $bp-laptop) {
+    @media (min-width: $switch-breakpoint) {
       display: none;
     }
   }
@@ -80,7 +81,7 @@
 
     text-transform: uppercase;
 
-    @media (min-width: $bp-laptop) {
+    @media (min-width: $switch-breakpoint) {
       display: block;
     }
   }
@@ -94,7 +95,7 @@
 
     border-top: 1px solid black;
 
-    @media (min-width: $bp-laptop) {
+    @media (min-width: $switch-breakpoint) {
       display: flex;
     }
   }

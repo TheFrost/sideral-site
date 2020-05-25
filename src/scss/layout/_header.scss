@@ -8,7 +8,7 @@ $max-size: 74px;
 
   border-bottom: 1px solid black;
 
-  @media (min-width: $bp-laptop) {
+  @media (min-width: $switch-breakpoint) {
     height: $max-size;
   }
 
@@ -31,7 +31,7 @@ $max-size: 74px;
       flex-shrink: 0;
       width: $min-size;
 
-      @media (min-width: $bp-laptop) {
+      @media (min-width: $switch-breakpoint) {
         width: $max-size;
       }
     }
@@ -39,7 +39,7 @@ $max-size: 74px;
     &.logo {
       flex-grow: 1;
 
-      @media (min-width: $bp-laptop) {
+      @media (min-width: $switch-breakpoint) {
         flex-grow: 0;
         padding: 0 2rem;
       }
@@ -49,7 +49,7 @@ $max-size: 74px;
         max-height: 23px;
         max-width: 100%;
 
-        @media (min-width: $bp-laptop) {
+        @media (min-width: $switch-breakpoint) {
           max-height: 30px;
         }
       }
@@ -59,7 +59,7 @@ $max-size: 74px;
       display: none;
       flex-grow: 1;
 
-      @media (min-width: $bp-laptop) {
+      @media (min-width: $switch-breakpoint) {
         display: block;
       }
 
