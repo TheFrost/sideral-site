@@ -1,0 +1,46 @@
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1103px;
+  padding: 1rem;
+
+  @media (min-width: $bp-hd-monitor) {
+    max-width: 1460px;
+  }
+
+  &__copy {
+    margin: 0;
+
+    font-family: Hatton;
+    font-weight: 300;
+    font-size: 1.25rem;
+    text-align: center;
+
+    @media (min-width: $bp-ipad-portrait) {
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: $bp-ipad-landscape) {
+      font-size: 1.8rem;
+    }
+
+    @media (min-width: $bp-laptop) {
+      font-size: 2.25rem;
+    }
+
+    @media (min-width: $bp-hd-monitor) {
+      font-size: 3rem;
+    }
+
+    > a {
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+
+      color: currentColor;
+    }
+  }
+}
