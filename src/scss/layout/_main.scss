@@ -3,4 +3,8 @@
   height: calc(100vh - 121px);
 
   overflow: auto;
+
+  @media (min-width: $switch-breakpoint) {
+    height: calc(100vh - 98px);
+  }
 }
