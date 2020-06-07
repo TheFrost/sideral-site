@@ -1,0 +1,62 @@
+.stepcols {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $bp-ipad-portrait) {
+    flex-direction: row;
+  }
+
+  @media (min-width: $bp-laptop) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__item {
+    margin-bottom: 1rem;
+
+    @media (min-width: $bp-ipad-portrait) {
+      width: calc(100% / 3);
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 0.5rem;
+
+    > sup {
+      margin-right: 0.5rem;
+
+      font-size: 0.75rem;
+
+      @media (min-width: $bp-laptop) {
+        font-size: 1rem;
+      }
+    }
+
+    > span {
+      border-bottom: 1px solid black;
+
+      @media (min-width: $bp-laptop) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  &__body {
+    padding-left: 2.5rem;
+
+    > p {
+      margin: 0;
+
+      font-size: 1rem;
+      line-height: 1.5;
+
+      @media (min-width: $bp-laptop) {
+        width: 325px;
+
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
