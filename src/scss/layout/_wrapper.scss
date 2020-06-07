@@ -2,4 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1103px;
+  margin: auto;
+  min-height: 100%;
+
+  @media (min-width: $bp-hd-monitor) {
+    max-width: 1460px;
+  }
+
+  &__inner {
+    padding: 1rem;
+  }
 }
