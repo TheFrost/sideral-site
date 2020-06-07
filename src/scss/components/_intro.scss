@@ -4,12 +4,6 @@
   align-items: center;
   flex-direction: column;
   height: 100%;
-  max-width: 1103px;
-  padding: 1rem;
-
-  @media (min-width: $bp-hd-monitor) {
-    max-width: 1460px;
-  }
 
   &__copy {
     margin: 0;
