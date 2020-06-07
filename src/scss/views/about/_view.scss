@@ -1,0 +1,10 @@
+.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 153px);
+
+  @media (min-width: $switch-breakpoint) {
+    min-height: calc(100vh - 130px);
+  }
+}
