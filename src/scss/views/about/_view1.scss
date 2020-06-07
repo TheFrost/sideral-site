@@ -63,28 +63,14 @@
       flex-direction: row;
     }
 
-    &-fig {
-      margin: 0;
-      margin-top: 2rem;
-
-      text-align: center;
+    &-copy {
+      margin-bottom: 2rem;
 
       @media (min-width: $bp-laptop) {
-        margin-top: 0;
+        margin-left: 2.55rem;
+        margin-bottom: 0;
       }
 
-      > img:not(:last-child) {
-        margin-right: 2.55rem;
-      }
-
-      > img:last-child {
-        @media (min-width: $bp-laptop) {
-          margin-right: 2.55rem;
-        }
-      }
-    }
-
-    &-copy {
       > p {
         margin: 0;
         font-size: 1.5rem;

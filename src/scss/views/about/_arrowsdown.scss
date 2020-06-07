@@ -1,0 +1,9 @@
+.arrowsdown {
+  margin: 0;
+
+  text-align: center;
+
+  > img:not(:last-child) {
+    margin-right: 2.55rem;
+  }
+}
