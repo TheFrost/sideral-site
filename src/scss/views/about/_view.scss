@@ -3,6 +3,11 @@
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 153px);
+  margin-bottom: 2rem;
+
+  @media (min-width: $bp-ipad-portrait) {
+    margin-bottom: 0;
+  }
 
   @media (min-width: $switch-breakpoint) {
     min-height: calc(100vh - 130px);
