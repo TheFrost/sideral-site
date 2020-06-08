@@ -40,30 +40,10 @@
   }
 
   &__star-title {
-    position: relative;
-
-    display: inline-block;
-    padding: 0.75rem 2rem;
     margin-top: 0.75rem;
-
-    text-align: center;
-    
-    border: 1px solid black;
-    border-radius: 50%;
 
     @media (min-width: $bp-ipad-portrait) {
       margin-top: 0;
-    }
-
-    > figure {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 10;
-
-      width: 40px;
-
-      transform: translateY(-14%);
     }
   }
 
