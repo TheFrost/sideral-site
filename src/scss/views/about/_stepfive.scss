@@ -1,0 +1,81 @@
+.stepfive {
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $bp-ipad-portrait) {
+      align-items: flex-end;
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+
+    &-fig {
+      display: none;
+
+      transform: translateY(50%);
+
+      @media (min-width: $bp-ipad-portrait) {
+        display: block;
+      }
+    }
+  }
+
+  &__headline {
+    @media (min-width: $bp-ipad-portrait) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 0.25rem;
+
+    font-size: 1.75rem;
+
+    @media (min-width: $bp-laptop) {
+      font-size: 3.5rem;
+    }
+
+    > sup {
+      margin-right: 0.5rem;
+
+      font-size: 0.5em;
+    }
+  }
+
+  &__subhead {
+    margin-left: 1.5rem;
+
+    @media (min-width: $bp-laptop) {
+      margin-left: 2.4rem;
+    }
+
+    > p  {
+      margin: 0;
+
+      font-size: 1.25rem;
+    }
+  }
+
+  &__startitle {
+    @media (min-width: $bp-ipad-portrait) {
+      transform: translateX(35%);
+    }
+
+    > p {
+      font-size: 2rem;
+
+      @media (min-width: $bp-laptop) {
+        font-size: 3rem;
+      }
+    }
+  }
+}
