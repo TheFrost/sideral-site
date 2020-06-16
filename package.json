@@ -11,22 +11,21 @@
     "build": "rm -rf public && parcel build src/*.pug --out-dir public --no-cache && node postbuild.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.9.5",
-    "autoprefixer": "^9.7.6",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
     "express": "^4.17.1",
     "lodash.escaperegexp": "^4.1.2",
     "parcel-bundler": "^1.12.4",
     "postcss-modules": "^2.0.0",
-    "pug": "^2.0.4",
-    "replace-in-file": "^6.0.0",
-    "sass": "^1.26.5",
-    "standard": "^14.3.3"
+    "pug": "^3.0.0",
+    "replace-in-file": "^6.1.0",
+    "sass": "^1.26.8",
+    "standard": "^14.3.4"
   },
   "dependencies": {
-    "gsap": "^3.2.6",
+    "gsap": "^3.3.3",
     "lodash.curry": "^4.1.1"
   },
   "standard": {
