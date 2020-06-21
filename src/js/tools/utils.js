@@ -130,6 +130,20 @@ export const isTablet = () => isMobileDevice() && !isSmartphone()
 export const isDesktop = () => !isMobileDevice()
 
 /**
+ * Return tag breakpoint active ( sync with sass breakpoints )
+ */
+export const getBreakpointTagActive = () => {
+  const width = window.innerWidth
+
+  if (width >= 1900) return 'bp-hd-monitor'
+  if (width >= 1280) return 'bp-laptop'
+  if (width >= 1024) return 'bp-ipad-landscape'
+  if (width >= 768) return 'bp-ipad-portrait'
+  if (width >= 500) return 'bp-smartphone-landscape'
+  if (width < 500) return 'bp-smartphone-portrait'
+}
+
+/**
  * Set Dynamic VH value
  */
 export const setVHDynamicValue = () => {
