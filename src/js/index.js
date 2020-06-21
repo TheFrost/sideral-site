@@ -1,10 +1,19 @@
+import { gsap, ScrollTrigger } from 'gsap/all'
 import { debounce } from 'lodash'
 import { isDesktop, setVHDynamicValue } from './tools/utils'
 import ModuleManager from './moduleManager'
 import CustomCursor from './modules/custom-cursor'
+import PortfolioScroll from './modules/portfolio-scroll'
+
+// setup GSAP Plugins
+gsap.registerPlugin(ScrollTrigger)
+
+// set type device on markup
+if (isDesktop()) document.body.classList.add('desktop-device')
 
 // set VH value
 setVHDynamicValue()
+
 window.addEventListener('load', () => {
   /**
    * Module manager setup
@@ -17,7 +26,10 @@ window.addEventListener('load', () => {
           new CustomCursor()
         ] : []
     ],
-    home: []
+    home: [],
+    work: [
+      new PortfolioScroll()
+    ]
   }
 
   const moduleManager = new ModuleManager(moduleCatalogSetup)
