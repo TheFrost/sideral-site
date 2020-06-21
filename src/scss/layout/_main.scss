@@ -1,10 +1,12 @@
 .main {
   flex-grow: 1;
   height: calc(100vh - 121px);
+  height: calc(#{$vh100} - 121px);
 
   overflow: auto;
 
   @media (min-width: $switch-breakpoint) {
     height: calc(100vh - 98px);
+    height: calc(#{$vh100} - 98px);
   }
 }

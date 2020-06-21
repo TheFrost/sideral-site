@@ -128,3 +128,11 @@ export const isTablet = () => isMobileDevice() && !isSmartphone()
  * Detect desktop resolution
  */
 export const isDesktop = () => !isMobileDevice()
+
+/**
+ * Set Dynamic VH value
+ */
+export const setVHDynamicValue = () => {
+  const vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+}

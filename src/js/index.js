@@ -1,8 +1,10 @@
 import { debounce } from 'lodash'
-import { isDesktop } from './tools/utils'
+import { isDesktop, setVHDynamicValue } from './tools/utils'
 import ModuleManager from './moduleManager'
 import CustomCursor from './modules/custom-cursor'
 
+// set VH value
+setVHDynamicValue()
 window.addEventListener('load', () => {
   /**
    * Module manager setup
@@ -24,6 +26,7 @@ window.addEventListener('load', () => {
   const bindEvents = () => {
     window.onresize = debounce(() => {
       moduleManager.resizeHandler()
+      setVHDynamicValue()
     }, 100)
   }
 
