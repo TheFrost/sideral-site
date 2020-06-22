@@ -11,6 +11,10 @@ export default class PortfolioScroll {
   scrollTimer = null
   isScrollOnTop = false
   isScrollOnBottom = false
+  isScrollActive = false
+  pageActive = 1
+  data = null
+  gridItems = 0
   gridItemsByResolution = {
     'bp-hd-monitor': 8,
     'bp-laptop': 8,
@@ -24,21 +28,21 @@ export default class PortfolioScroll {
     <li class="portfolio__item">
       <article class="portfolio__container">
         <figure class="portfolio__fig">
-          <a href="/index.html" class="portfolio__link first" data-index="0">
-            <img src="https://sideral.mx/nuevo/wp-content/uploads/2020/06/CASOLAMICHOACANA_1.jpg" alt="" />
+          <a href="#" class="portfolio__link first" data-index="0">
+            <img src="" alt="" />
           </a>
-          <a href="#2" class="portfolio__link second" data-index="1">
-            <img src="https://sideral.mx/nuevo/wp-content/uploads/2020/06/CASOGG_1.jpg" alt="" />
+          <a href="#" class="portfolio__link second" data-index="1">
+            <img src="" alt="" />
           </a>
         </figure>
         <footer class="portfolio__footer">
           <div class="portfolio__info first" data-index="0">
-            <span class="portfolio__meta">Mezcal Sta. Maria</span>
-            <span class="portfolio__meta">Puebla, Pue.</span>
+            <span class="portfolio__meta name"></span>
+            <span class="portfolio__meta place"></span>
           </div>
           <div class="portfolio__info second" data-index="1">
-            <span class="portfolio__meta">Mezcal Sta. Maria</span>
-            <span class="portfolio__meta">Puebla, Pue.</span>
+            <span class="portfolio__meta name"></span>
+            <span class="portfolio__meta place"></span>
           </div>
         </footer>
       </article>
@@ -49,35 +53,95 @@ export default class PortfolioScroll {
     this.DOM = {
       main: $('.main'),
       list: $('.portfolio__list'),
+      items: null,
       figures: null,
       links: null,
       scroller: $('.portfolio__fakescroll'),
-      scrollAreas: $$('.portfolio__fakescroll-area').slice(0, -1)
+      scrollAreas: null
     }
   }
 
   init () {
     this.setupGrid()
-    this.setupDOMDynamicSelectors()
+    this.setupDOMDynamicSelectors('items', $$('.portfolio__item'))
+    this.setupDOMDynamicSelectors('links', $$('.portfolio__link'))
+    this.setupDOMDynamicSelectors('figures', $$('.portfolio__fig'))
+    this.fetch()
+  }
+
+  fetch () {
+    window.fetch('https://sideral.mx/nuevo/wp-json/acf/v3/posts')
+      .then(response => response.json())
+      .then(response => this.setupPortfolioData(response))
+  }
+
+  setupPortfolioData (data) {
+    const { items, scroller } = this.DOM
+
+    items.map((item, index) => {
+      const firstData = data[index]
+      const secondData = data[index + (this.gridItems / 2)]
+
+      const firstLink = $(item, '.portfolio__link.first')
+      const firstImg = $(firstLink, 'img')
+      const firstName = $(item, '.portfolio__info.first > .name')
+      const firstPlace = $(item, '.portfolio__info.first > .place')
+
+      const secondLink = $(item, '.portfolio__link.second')
+      const secondImg = $(secondLink, 'img')
+      const secondName = $(item, '.portfolio__info.second > .name')
+      const secondPlace = $(item, '.portfolio__info.second > .place')
+
+      if (firstData !== undefined) {
+        // firstLink.setAttribute('href', `/work/${firstData.id}`)
+        firstImg.setAttribute('src', firstData.acf.image_1_data.image)
+        firstName.textContent = firstData.acf.project_name
+        firstPlace.textContent = firstData.acf.origin_of_project
+      }
+
+      if (secondData !== undefined) {
+        // secondLink.setAttribute('href', `/work/${secondData.id}`)
+        secondImg.setAttribute('src', secondData.acf.image_1_data.image)
+        secondName.textContent = secondData.acf.project_name
+        secondPlace.textContent = secondData.acf.origin_of_project
+      }
+    })
+
+    // setip scroll areas
+    if (data.length <= this.gridItems) return
+    const areas = Math.ceil((data.length - this.gridItems) / (this.gridItems / 2)) + 1
+    let areasMarkup = ''
+    for (let i = 0; i < areas; i++) {
+      areasMarkup += '<div class="portfolio__fakescroll-area"></div>'
+    }
+    scroller.innerHTML = areasMarkup
+
+    this.setupDOMDynamicSelectors(
+      'scrollAreas',
+      $$('.portfolio__fakescroll-area')
+    )
+
+    this.isScrollActive = true
     this.setupTweens()
     this.bindEvents()
+
+    this.data = data
   }
 
   setupGrid () {
     const { list } = this.DOM
-    const gridItems = this.getGridItemsByResolution(getBreakpointTagActive())
+    this.gridItems = this.getGridItemsByResolution(getBreakpointTagActive())
     let markup = ''
 
-    for (let i = 0; i < gridItems; i++) {
+    for (let i = 0; i < this.gridItems; i++) {
       markup += this.gridItemTemplate
     }
 
     list.innerHTML = markup
   }
 
-  setupDOMDynamicSelectors () {
-    this.DOM.figures = $$('.portfolio__fig')
-    this.DOM.links = $$('.portfolio__link')
+  setupDOMDynamicSelectors (key, selector) {
+    this.DOM[key] = selector
   }
 
   getGridItemsByResolution (resolution) {
@@ -87,7 +151,7 @@ export default class PortfolioScroll {
   bindEvents () {
     const { main, scroller } = this.DOM
 
-    if (!this.isMobileDevice) {
+    if (!this.isMobileDevice && this.isScrollActive) {
       main.addEventListener('wheel', (e) => this.wheelHandler(e), { passive: true })
     }
 
@@ -161,6 +225,64 @@ export default class PortfolioScroll {
           start: 'top top',
           end: 'bottom top',
           scrub: 1,
+          onLeave: () => {
+            this.pageActive += 1
+
+            const firstSelector = $$(first)
+            const indexControl = ((this.gridItems / 2) * this.pageActive)
+
+            firstSelector
+              .filter(element => element.classList.contains('portfolio__link'))
+              .map((element, index) => {
+                const data = this.data[index + indexControl]
+
+                if (data === undefined) return
+
+                const img = $(element, 'img')
+                img.setAttribute('src', data.acf.image_1_data.image)
+              })
+            firstSelector
+              .filter(element => element.classList.contains('portfolio__info'))
+              .map((element, index) => {
+                const data = this.data[index + indexControl]
+
+                if (data === undefined) return
+
+                const name = $(element, '.name')
+                const place = $(element, '.place')
+                name.textContent = data.acf.project_name
+                place.textContent = data.acf.origin_of_project
+              })
+          },
+          onEnterBack: () => {
+            this.pageActive -= 1
+
+            const firstSelector = $$(first)
+            const indexControl = ((this.gridItems / 2) * (this.pageActive - 1))
+
+            firstSelector
+              .filter(element => element.classList.contains('portfolio__link'))
+              .map((element, index) => {
+                const data = this.data[index + indexControl]
+
+                if (data === undefined) return
+
+                const img = $(element, 'img')
+                img.setAttribute('src', data.acf.image_1_data.image)
+              })
+            firstSelector
+              .filter(element => element.classList.contains('portfolio__info'))
+              .map((element, index) => {
+                const data = this.data[index + indexControl]
+
+                if (data === undefined) return
+
+                const name = $(element, '.name')
+                const place = $(element, '.place')
+                name.textContent = data.acf.project_name
+                place.textContent = data.acf.origin_of_project
+              })
+          },
           ...(!this.isMobileDevice
             ? {
               onUpdate: () => this.restartScrollTimer(() => this.setScrollLayerPosition('under')),

@@ -103,8 +103,12 @@ export const pubsub = new Pubsub()
 /**
  * simple querySelector methods
  */
-export const $ = (selector) => document.querySelector(selector) // single selector
-export const $$ = (selector) => [...document.querySelectorAll(selector)] // array selector
+// single selector
+export const $ = (elementOrSelector, findSelector = null) => findSelector === null
+  ? document.querySelector(elementOrSelector)
+  : elementOrSelector.querySelector(findSelector)
+// array selector
+export const $$ = (selector) => [...document.querySelectorAll(selector)]
 
 /**
  * Detect mobile device
