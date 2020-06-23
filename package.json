@@ -7,7 +7,7 @@
   "author": "TheFrost <frost084@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "rm -rf dist && node server/index.js",
+    "dev": "rm -rf dist && node index.js",
     "build": "rm -rf public && parcel build src/*.pug --out-dir public --no-cache && node postbuild.js"
   },
   "devDependencies": {
