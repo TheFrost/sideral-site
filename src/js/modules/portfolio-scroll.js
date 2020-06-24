@@ -5,6 +5,11 @@ import {
   isMobileDevice
 } from '../tools/utils'
 
+import placeholderAstronaut from '../../images/placeholder-astronaut.png'
+import placeholderAlien from '../../images/placeholder-alien.png'
+import placeholderOvni from '../../images/placeholder-ovni.png'
+import placeholderEye from '../../images/placeholder-eye.png'
+
 export default class PortfolioScroll {
   isMobileDevice = isMobileDevice()
   scrollDirection = 1
@@ -48,6 +53,19 @@ export default class PortfolioScroll {
       </article>
     </li>
   `
+
+  placeholders = [
+    placeholderEye,
+    placeholderOvni,
+    placeholderAlien,
+    placeholderAstronaut
+  ]
+
+  getPlaceholder = () => (
+    this.placeholders[
+      Math.floor(Math.random() * this.placeholders.length)
+    ]
+  )
 
   constructor () {
     this.DOM = {
@@ -94,14 +112,14 @@ export default class PortfolioScroll {
 
       if (firstData !== undefined) {
         // firstLink.setAttribute('href', `/work/${firstData.id}`)
-        firstImg.setAttribute('src', firstData.acf.image_1_data.image)
+        firstImg.setAttribute('src', firstData.acf.thumb || this.getPlaceholder())
         firstName.textContent = firstData.acf.project_name
         firstPlace.textContent = firstData.acf.origin_of_project
       }
 
       if (secondData !== undefined) {
         // secondLink.setAttribute('href', `/work/${secondData.id}`)
-        secondImg.setAttribute('src', secondData.acf.image_1_data.image)
+        secondImg.setAttribute('src', secondData.acf.thumb || this.getPlaceholder())
         secondName.textContent = secondData.acf.project_name
         secondPlace.textContent = secondData.acf.origin_of_project
       }
@@ -239,7 +257,7 @@ export default class PortfolioScroll {
                 if (data === undefined) return
 
                 const img = $(element, 'img')
-                img.setAttribute('src', data.acf.image_1_data.image)
+                img.setAttribute('src', data.acf.thumb || this.getPlaceholder())
               })
             firstSelector
               .filter(element => element.classList.contains('portfolio__info'))
@@ -268,7 +286,7 @@ export default class PortfolioScroll {
                 if (data === undefined) return
 
                 const img = $(element, 'img')
-                img.setAttribute('src', data.acf.image_1_data.image)
+                img.setAttribute('src', data.acf.thumb || this.getPlaceholder())
               })
             firstSelector
               .filter(element => element.classList.contains('portfolio__info'))
