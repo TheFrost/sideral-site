@@ -84,7 +84,7 @@ fs.readdir(`./${baseDir}`, (err, files) => {
     }
   )
 
-  // replace map links in js
+  // replace map links and links in js
   js.forEach(
     file => {
       maps.forEach(name => {
@@ -92,6 +92,19 @@ fs.readdir(`./${baseDir}`, (err, files) => {
           files: path.join(baseDir, file),
           from: name,
           to: '../' + assetsDir + '/' + name
+        }
+        try {
+          const changedFiles = replace.sync(options)
+          console.log('Modified files:', changedFiles.join(', '))
+        } catch (error) {
+          console.error('Error occurred:', error)
+        }
+      })
+      staticAssets.forEach(name => {
+        const options = {
+          files: path.join(baseDir, file),
+          from: new RegExp(escapeRegExp(name), 'g'),
+          to: '../' + staticDir + '/' + name
         }
         try {
           const changedFiles = replace.sync(options)
