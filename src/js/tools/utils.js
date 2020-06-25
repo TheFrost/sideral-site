@@ -1,4 +1,6 @@
 import curry from 'lodash.curry'
+import deburr from 'lodash.deburr'
+import kebabCase from 'lodash.kebabcase'
 import Pubsub from './pubsub'
 
 const query = (a) => document.querySelector(`[data-name="${a}"]`)
@@ -154,3 +156,8 @@ export const setVHDynamicValue = () => {
   const vh = window.innerHeight * 0.01
   document.documentElement.style.setProperty('--vh', `${vh}px`)
 }
+
+/**
+ * Get slug format from string
+ */
+export const getSlug = (str) => kebabCase(deburr(str))
