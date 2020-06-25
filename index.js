@@ -35,10 +35,10 @@ bundler.on('buildEnd', () => {
       app.get(`/${fileName === 'index' ? '' : fileName}`, (_, res) => {
         res.sendFile(path.join(__dirname, `dist/${file}`))
       })
+    })
 
-      app.get(`/servicios/${fileName}`, (_, res) => {
-        res.sendFile(path.join(__dirname, `dist/${file}`))
-      })
+    app.get('/work/*', (_, res) => {
+      res.sendFile(path.join(__dirname, 'dist/project.html'))
     })
 
     app.use((_, res) => {
