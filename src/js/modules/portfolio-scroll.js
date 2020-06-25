@@ -30,15 +30,15 @@ export default class PortfolioScroll {
     'bp-smartphone-portrait': 2
   }
 
-  gridItemTemplate = /* html */`
+  getGridItemTemplate = () => /* html */`
     <li class="portfolio__item">
       <article class="portfolio__container">
         <figure class="portfolio__fig">
           <a href="#" class="portfolio__link first" data-index="0">
-            <img src="" alt="" />
+            <img src="${this.getPlaceholder()}" alt="" />
           </a>
           <a href="#" class="portfolio__link second" data-index="1">
-            <img src="" alt="" />
+            <img src="${this.getPlaceholder()}" alt="" />
           </a>
         </figure>
         <footer class="portfolio__footer">
@@ -163,7 +163,7 @@ export default class PortfolioScroll {
     let markup = ''
 
     for (let i = 0; i < this.gridItems; i++) {
-      markup += this.gridItemTemplate
+      markup += this.getGridItemTemplate()
     }
 
     list.innerHTML = markup
