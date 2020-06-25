@@ -1,4 +1,4 @@
-import createElement, { closest, ease } from '../tools/utils'
+import { createElement, closest, ease } from '../tools/utils'
 
 export default class CustomCursor {
   props = {
