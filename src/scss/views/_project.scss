@@ -1,0 +1,99 @@
+.project {
+  @media (min-width: $bp-wrapper-limit) {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+  }
+
+  &__hero {
+    padding: 0.5rem;
+
+    > img { width: 100%; }
+  }
+
+  &__info {
+    border-top: 1px solid black;
+
+    &-block {
+      flex-grow: 1;
+      padding: 1rem;
+
+      border-bottom: 1px solid black;
+
+      @media (min-width: $bp-laptop) {
+        min-height: 145px;
+      }
+
+      p {
+        margin: 0;
+
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 1rem;
+
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+
+  &__list {
+    > li {
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &__icons-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > figure {
+      max-width: 57px;
+      
+      &:not(:first-child):not(:last-child) {
+        margin: 0 2rem;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $bp-ipad-portrait) {
+      flex-direction: row;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $bp-ipad-portrait) {
+      width: 55%;
+
+      border-right: 1px solid black;
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    &:first-child {
+      @media (min-width: $bp-ipad-portrait) {
+        width: 20%;
+      }
+    }
+
+    &:last-child {
+      @media (min-width: $bp-ipad-portrait) {
+        width: 25%;
+      }
+    }
+  }
+}

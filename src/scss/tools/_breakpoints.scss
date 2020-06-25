@@ -2,6 +2,7 @@ $bp-smartphone-landscape: 500px;
 $bp-ipad-portrait:        768px;
 $bp-ipad-landscape:       1024px;
 $bp-laptop:               1280px;
+$bp-wrapper-limit:        $wrapper-limit + 115;
 $bp-hd-monitor:           1900px;
 
 $switch-breakpoint: $bp-ipad-landscape;

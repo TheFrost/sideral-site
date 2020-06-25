@@ -7,10 +7,19 @@
   min-height: 100%;
 
   @media (min-width: $bp-hd-monitor) {
-    max-width: 1460px;
+    max-width: $wrapper-limit;
+  }
+
+  &.full {
+    max-width: $wrapper-limit;
   }
 
   &__inner {
     padding: 1rem;
+    width: 100%;
+
+    &.no-padding {
+      padding: 0;
+    }
   }
 }

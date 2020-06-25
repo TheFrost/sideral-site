@@ -1,0 +1,48 @@
+//- Project
+extends pug/layout/layout
+
+block content
+  div.wrapper.full.work(data-module-scope="project")
+    div.wrapper__inner.no-padding
+      article.project
+        figure.project__hero
+          img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/06/CASOLAMICHOACANA_1.jpg", alt="Cafe la Palabra")
+        div.project__info
+          div.project__row
+            div.project__column
+              div.project__info-block
+                h2.project__title Proyecto
+                p.name Cafe la Palabra
+            div.project__column
+              div.project__info-block
+                h2.project__title Origen
+                p.address Col. Condesa 54789
+            div.project__column
+              div.project__info-block
+                h2.project__title Fecha
+                p.date 50/50/50
+          div.project__row
+            div.project__column
+              div.project__info-block.u-flex-center
+                figure.project__icon.big
+                  img(src="images/smile-eyes.svg", alt="SIDERAL STUDIO")
+            div.project__column
+              div.project__info-block
+                h2.project__title Desarrollo
+                div.project__text-container
+                  p Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem consequuntur cupiditate quia voluptatum reprehenderit. Animi ducimus dicta, voluptates incidunt repellat quod vero eius illo minus harum modi doloremque eum libero.
+                  p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis repellat id, maiores quod totam assumenda excepturi harum quia perspiciatis iste nisi et iure officiis aspernatur sunt similique, nesciunt quos corporis!
+            div.project__column
+              div.project__info-block
+                ul.project__list.u-list-nostyle
+                  li Dir. de Arte
+                  li Diseño
+                  li Front-end
+              div.project__info-block.u-flex-center
+                div.project__icons-grid
+                  figure.project__icon
+                    img(src="images/asteroid.svg", alt="SIDERAL STUDIO")
+                  figure.project__icon
+                    img(src="images/astronaut.svg", alt="SIDERAL STUDIO")
+                  figure.project__icon
+                    img(src="images/planet.svg", alt="SIDERAL STUDIO")
