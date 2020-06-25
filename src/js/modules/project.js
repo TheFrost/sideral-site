@@ -49,7 +49,7 @@ export default class Project {
       skills
     } = this.DOM
 
-    hero.setAttribute('src', mainImage || '')
+    if (mainImage) hero.setAttribute('src', mainImage)
     hero.setAttribute('alt', projectName)
     name.textContent = projectName
     address.textContent = originOfProject
