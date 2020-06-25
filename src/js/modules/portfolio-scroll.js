@@ -262,13 +262,16 @@ export default class PortfolioScroll {
 
             firstSelector
               .filter(element => element.classList.contains('portfolio__link'))
-              .map((element, index) => {
+              .map((link, index) => {
                 const data = this.data[index + indexControl]
 
                 if (data === undefined) return
 
-                const img = $(element, 'img')
+                const img = $(link, 'img')
                 img.setAttribute('src', data.acf.thumb || this.getPlaceholder())
+                link.setAttribute('href', data.acf.project_name !== ''
+                  ? `/work/${getSlug(data.acf.project_name)}/${data.id}`
+                  : '#')
               })
             firstSelector
               .filter(element => element.classList.contains('portfolio__info'))
@@ -291,13 +294,16 @@ export default class PortfolioScroll {
 
             firstSelector
               .filter(element => element.classList.contains('portfolio__link'))
-              .map((element, index) => {
+              .map((link, index) => {
                 const data = this.data[index + indexControl]
 
                 if (data === undefined) return
 
-                const img = $(element, 'img')
+                const img = $(link, 'img')
                 img.setAttribute('src', data.acf.thumb || this.getPlaceholder())
+                link.setAttribute('href', data.acf.project_name !== ''
+                  ? `/work/${getSlug(data.acf.project_name)}/${data.id}`
+                  : '#')
               })
             firstSelector
               .filter(element => element.classList.contains('portfolio__info'))
