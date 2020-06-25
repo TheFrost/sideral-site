@@ -161,3 +161,12 @@ export const setVHDynamicValue = () => {
  * Get slug format from string
  */
 export const getSlug = (str) => kebabCase(deburr(str))
+
+/**
+ * Get DOM element from string template
+ */
+export const parseHTML = (str) => {
+  const tmp = document.implementation.createHTMLDocument()
+  tmp.body.innerHTML = str
+  return tmp.body.children
+}

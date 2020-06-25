@@ -4,6 +4,7 @@ import { isDesktop, setVHDynamicValue } from './tools/utils'
 import ModuleManager from './moduleManager'
 import CustomCursor from './modules/custom-cursor'
 import PortfolioScroll from './modules/portfolio-scroll'
+import Project from './modules/project'
 
 // setup GSAP Plugins
 gsap.registerPlugin(ScrollTrigger)
@@ -29,6 +30,9 @@ window.addEventListener('load', () => {
     home: [],
     work: [
       new PortfolioScroll()
+    ],
+    project: [
+      new Project()
     ]
   }
 
