@@ -2,25 +2,25 @@
 extends pug/layout/layout
 
 block content
-  div.wrapper.full.work(data-module-scope="project")
+  div.wrapper.full(data-module-scope="project")
     div.wrapper__inner.no-padding
       article.project
         figure.project__hero
-          img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/06/CASOGG_1.jpg", alt="Cafe la Palabra")
+          img(src="", alt="")
         div.project__info
           div.project__row
             div.project__column
               div.project__info-block
                 h2.project__title Proyecto
-                p.name Cafe la Palabra
+                p.name
             div.project__column
               div.project__info-block
                 h2.project__title Origen
-                p.address Col. Condesa 54789
+                p.address
             div.project__column
               div.project__info-block
                 h2.project__title Fecha
-                p.date 50/50/50
+                p.date
           div.project__row
             div.project__column
               div.project__info-block.u-flex-center
@@ -30,14 +30,9 @@ block content
               div.project__info-block
                 h2.project__title Desarrollo
                 div.project__text-container
-                  p Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem consequuntur cupiditate quia voluptatum reprehenderit. Animi ducimus dicta, voluptates incidunt repellat quod vero eius illo minus harum modi doloremque eum libero.
-                  p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis repellat id, maiores quod totam assumenda excepturi harum quia perspiciatis iste nisi et iure officiis aspernatur sunt similique, nesciunt quos corporis!
             div.project__column
               div.project__info-block
-                ul.project__list.u-list-nostyle
-                  li Dir. de Arte
-                  li Diseño
-                  li Front-end
+                ul.project__list.skills.u-list-nostyle
               div.project__info-block.u-flex-center
                 div.project__icons-grid
                   figure.project__icon
@@ -46,34 +41,4 @@ block content
                     img(src="images/astronaut.svg", alt="SIDERAL STUDIO")
                   figure.project__icon
                     img(src="images/planet.svg", alt="SIDERAL STUDIO")
-        ul.project__gallery.u-list-nostyle.even
-          li.project__gallery-item.type_3
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_2-1.jpg", alt="Project Name")
-          li.project__gallery-item.type_2
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_3.jpg", alt="Project Name")
-          li.project__gallery-item.type_2
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_4.jpg", alt="Project Name")
-          li.project__gallery-item.type_3
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_5-1.jpg", alt="Project Name")
-          li.project__gallery-item.type_4
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_6-1.jpg", alt="Project Name")
-          li.project__gallery-item.type_4
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_7-1.jpg", alt="Project Name")
-          li.project__gallery-item.type_2
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_8-2-1.jpg", alt="Project Name")
-          li.project__gallery-item.type_3
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_9-2.jpg", alt="Project Name")
-          li.project__gallery-item.type_3
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_11.jpg", alt="Project Name")
-          li.project__gallery-item.type_2
-            figure
-              img(src="https://sideral.mx/nuevo/wp-content/uploads/2020/05/CASOLAPALABRA_FOTO_10-1.jpg", alt="Project Name")
+        ul.project__gallery.u-list-nostyle
