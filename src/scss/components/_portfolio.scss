@@ -19,9 +19,12 @@
     flex-shrink: 0;
 
     @media (min-width: $bp-smartphone-landscape) {
-      max-width: 300px;
+      max-width: 100%;
       width: 50%;
-      max-width: auto;
+    }
+
+    @media (min-width: $bp-ipad-portrait) {
+      max-width: 100%;
     }
 
     @media (min-width: $bp-ipad-landscape) {
