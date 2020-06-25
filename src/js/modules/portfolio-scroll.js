@@ -2,7 +2,8 @@ import { gsap } from 'gsap/all'
 import {
   $, $$,
   getBreakpointTagActive,
-  isMobileDevice
+  isMobileDevice,
+  getSlug
 } from '../tools/utils'
 
 import placeholderAstronaut from '../../images/placeholder-astronaut.png'
@@ -111,14 +112,24 @@ export default class PortfolioScroll {
       const secondPlace = $(item, '.portfolio__info.second > .place')
 
       if (firstData !== undefined) {
-        // firstLink.setAttribute('href', `/work/${firstData.id}`)
+        firstLink.setAttribute(
+          'href',
+          firstData.acf.project_name !== ''
+            ? `/work/${getSlug(firstData.acf.project_name)}/${firstData.id}`
+            : '#'
+        )
         firstImg.setAttribute('src', firstData.acf.thumb || this.getPlaceholder())
         firstName.textContent = firstData.acf.project_name
         firstPlace.textContent = firstData.acf.origin_of_project
       }
 
       if (secondData !== undefined) {
-        // secondLink.setAttribute('href', `/work/${secondData.id}`)
+        secondLink.setAttribute(
+          'href',
+          secondData.acf.project_name !== ''
+            ? `/work/${getSlug(secondData.acf.project_name)}/${secondData.id}`
+            : '#'
+        )
         secondImg.setAttribute('src', secondData.acf.thumb || this.getPlaceholder())
         secondName.textContent = secondData.acf.project_name
         secondPlace.textContent = secondData.acf.origin_of_project
