@@ -132,6 +132,9 @@
         width: 100% !important;
       }
 
+      &.type_1 {
+        width: 100%;
+      }
       &.type_2 {
         width: calc(100% / 3 * 2);
       }
