@@ -7,6 +7,10 @@
   &__hero {
     padding: 0.5rem;
 
+    @media (min-width: $bp-ipad-portrait) {
+      padding: 1rem;
+    }
+
     > img { width: 100%; }
   }
 
@@ -15,7 +19,11 @@
 
     &-block {
       flex-grow: 1;
-      padding: 1rem;
+      padding: 1rem 0.5rem;
+
+      @media (min-width: $bp-ipad-portrait) {
+        padding: 1rem;
+      }
 
       border-bottom: 1px solid black;
 
@@ -26,7 +34,7 @@
       p {
         margin: 0;
 
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -35,7 +43,7 @@
     margin: 0;
     margin-bottom: 1rem;
 
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: normal;
   }
 
@@ -94,6 +102,49 @@
       @media (min-width: $bp-ipad-portrait) {
         width: 25%;
       }
+    }
+  }
+
+  &__gallery {
+    display: flex;
+    flex-wrap: wrap;
+
+    &.even {
+      .project__gallery-item {
+        &:nth-last-child(-n+2) {
+          @media (min-width: $bp-ipad-portrait) {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    &-item {
+      &:not(:last-child) {
+        border-bottom: 1px solid black;
+      }
+
+      @media (max-width: $bp-ipad-portrait - 1px) {
+        width: 100% !important;
+      }
+
+      &.type_2 {
+        width: calc(100% / 3 * 2);
+      }
+      &.type_3 {
+        width: calc(100% / 3);
+      }
+      &.type_4 {
+        width: 50%;
+      }
+
+      &:not(:nth-child(even)) {
+        @media (min-width: $bp-ipad-portrait) {
+          border-right: 1px solid black;
+        }
+      }
+
+      figure, img { width: 100%; }
     }
   }
 }
