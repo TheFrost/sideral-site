@@ -130,6 +130,7 @@
 
       @media (max-width: $bp-ipad-portrait - 1px) {
         width: 100% !important;
+        border-right: none;
       }
 
       &.type_1 {
@@ -143,12 +144,6 @@
       }
       &.type_4 {
         width: 50%;
-      }
-
-      &:not(:nth-child(even)) {
-        @media (min-width: $bp-ipad-portrait) {
-          border-right: 1px solid black;
-        }
       }
 
       figure, img { width: 100%; }

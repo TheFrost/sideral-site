@@ -63,23 +63,32 @@ export default class Project {
   renderGallery (data) {
     const { gallery } = this.DOM
     const { project_name: projectName } = data
+    let counterCtrl = 0
 
     const keys = Object.keys(data)
       .filter(key => key.startsWith('image_'))
       .filter(key => data[key].image)
 
-    if (keys.length % 2 === 0) gallery.classList.add('even')
-
-    keys.map(key => {
+    keys.map((key, index) => {
       const { image, image_type: type } = data[key]
 
+      if (index === keys.length - 1 && type !== 'type_1') {
+        gallery.classList.add('even')
+      }
+
       gallery.appendChild(parseHTML(/* html */`
-        <li class="project__gallery-item ${type}">
+        <li class="project__gallery-item ${type} ${
+          type !== 'type_1' && !(counterCtrl % 2)
+            ? 'u-border-right'
+            : ''
+        }">
           <figure>
             <img src="${image}" alt="${projectName}"/>
           </figure>
         </li>
       `)[0])
+
+      counterCtrl = type !== 'type_1' ? counterCtrl + 1 : 0
     })
   }
 }
