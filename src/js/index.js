@@ -6,6 +6,8 @@ import CustomCursor from './modules/custom-cursor'
 import PortfolioScroll from './modules/portfolio-scroll'
 import Project from './modules/project'
 
+import '../images/share.png'
+
 // setup GSAP Plugins
 gsap.registerPlugin(ScrollTrigger)
 
