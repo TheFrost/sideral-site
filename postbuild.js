@@ -58,8 +58,12 @@ fs.readdir(`./${baseDir}`, (err, files) => {
       staticAssets.forEach(name => {
         const options = {
           files: path.join(baseDir, file),
-          from: new RegExp(escapeRegExp(name), 'g'),
-          to: staticDir + '/' + name
+          from: name.match(/share/)
+            ? 'share.png'
+            : new RegExp(escapeRegExp(name), 'g'),
+          to: name.match(/share/)
+            ? name
+            : staticDir + '/' + name
         }
         try {
           const changedFiles = replace.sync(options)
