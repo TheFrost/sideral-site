@@ -1,10 +1,16 @@
-$size: 35px;
+$size: 33px;
 
 .social {
   display: flex;
 
   &__item {
     margin-right: 1.5rem;
+
+    &:last-child {
+      @media (min-width: $bp-ipad-portrait) and (max-width: $bp-ipad-landscape - 1px) {
+        margin-right: 0.5rem;
+      }
+    }
 
     > a {
       display: flex;
@@ -16,8 +22,22 @@ $size: 35px;
       text-decoration: none;
 
       color: currentColor;
+      background-color: white;
       border: 1px solid black;
       border-radius: 50%;
+    }
+  }
+}
+
+// device styles
+.body.smartphone-device {
+  .social {
+    flex-direction: column;
+
+    &__item {
+      margin-right: 0;
+
+      &:not(:last-child) { margin-bottom: 0.5rem; }
     }
   }
 }

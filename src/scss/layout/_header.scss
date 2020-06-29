@@ -2,6 +2,8 @@ $min-size: 50px;
 $max-size: 74px;
 
 .header {
+  position: relative;
+
   display: flex;
   flex-shrink: 0;
   height: $min-size;
@@ -39,7 +41,7 @@ $max-size: 74px;
     &.logo {
       flex-grow: 1;
 
-      @media (min-width: $switch-breakpoint) {
+      @media (min-width: $bp-ipad-portrait) {
         flex-grow: 0;
         padding: 0 2rem;
       }
@@ -56,27 +58,62 @@ $max-size: 74px;
     }
 
     &.contact {
-      display: none;
       flex-grow: 1;
-
-      @media (min-width: $switch-breakpoint) {
-        display: block;
-      }
 
       .header__section-inner {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
+        width: 100%;
       }
     }
   }
 
   &__address {
+    display: none;
+    flex-grow: 1;
+
+    font-size: 0.6rem;
+
+    @media (min-width: $bp-ipad-portrait) {
+      display: block;
+    }
+
+    @media (min-width: $switch-breakpoint) {
+      font-size: 1rem;
+    }
+
     > a {
       text-transform: uppercase;
       text-decoration: none;
 
       color: currentColor;
     }
+
+    span { display: block; }
+  }
+}
+
+// device styles
+.body.smartphone-device {
+  .header {
+    &__section.contact {
+      position: absolute;
+      bottom: -1px;
+      right: 0;
+      z-index: 10;
+
+      opacity: 0;
+
+      border: none;
+
+      transform: translateY(100%);
+    }
+
+    &__section.logo {
+      flex-grow: 1;
+    }
+
+    &__address { display: none; }
   }
 }
