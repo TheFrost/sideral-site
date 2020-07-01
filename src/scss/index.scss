@@ -9,13 +9,6 @@
 // resources
 @import "resources/fonts";
 
-// layout
-@import "layout/body";
-@import "layout/header";
-@import "layout/main";
-@import "layout/wrapper";
-@import "layout/nav";
-
 // components
 @import "components/svg";
 @import "components/cursor";
@@ -23,6 +16,13 @@
 @import "components/intro";
 @import "components/link";
 @import "components/portfolio";
+
+// layout
+@import "layout/body";
+@import "layout/header";
+@import "layout/main";
+@import "layout/wrapper";
+@import "layout/nav";
 
 // views
 @import "views/about/view";
